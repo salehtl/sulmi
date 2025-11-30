@@ -548,16 +548,9 @@ export default function Specifications() {
                         }}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
                     >
-                        {currentSpecs.map((spec, index) => (
-                            <motion.div
+                        {currentSpecs.map((spec) => (
+                            <div
                                 key={spec.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.4,
-                                    delay: index * 0.05,
-                                    ease: [0.25, 0.1, 0.25, 1]
-                                }}
                                 className="
                                     p-5 md:p-8
                                     border border-white/15
@@ -580,7 +573,7 @@ export default function Specifications() {
                                         {spec.value}
                                     </span>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </motion.div>
                 ) : (
