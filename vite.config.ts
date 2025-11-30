@@ -21,6 +21,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+    // Ensure React is deduplicated across chunks
+    dedupe: ['react', 'react-dom'],
   },
   build: {
     // Optimize chunk splitting
@@ -29,8 +31,10 @@ export default defineConfig({
         manualChunks: (id) => {
           // Split node_modules into vendor chunks
           if (id.includes('node_modules')) {
-            // React core
-            if (id.includes('react') || id.includes('react-dom')) {
+            // React core - MUST stay together (react and react-dom in same chunk)
+            // This ensures React loads before other modules that depend on it
+            if (id.includes('react') && (id.includes('/react/') || id.includes('/react-dom/') ||
+              id.includes('/react/jsx-runtime') || id.includes('/react/jsx-dev-runtime'))) {
               return 'react-vendor'
             }
             // Router
@@ -72,9 +76,17 @@ export default defineConfig({
     // Chunk size warnings - increased since Three.js is lazy loaded
     // The three-core chunk is ~1MB but only loads when WaitlistForm is rendered
     chunkSizeWarningLimit: 1500,
+    // Common chunk strategy
+    commonjsOptions: {
+      include: [/node_modules/],
+    },
   },
   // Optimize dependencies
   optimizeDeps: {
     include: ['react', 'react-dom', '@tanstack/react-router'],
+    esbuildOptions: {
+      // Ensure React is treated as external dependency correctly
+      target: 'esnext',
+    },
   },
 })

@@ -1,16 +1,6 @@
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
 
 export default function Hero() {
-  // Preload hero image
-  useEffect(() => {
-    const link = document.createElement('link')
-    link.rel = 'preload'
-    link.as = 'image'
-    link.href = '/hero-bg.jpg'
-    document.head.appendChild(link)
-  }, [])
-
   return (
     <section className="relative isolate w-full h-screen min-h-[900px] flex flex-col items-start justify-center overflow-hidden">
 
