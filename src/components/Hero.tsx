@@ -1,10 +1,18 @@
 import { motion } from 'framer-motion'
-
-import Chip from './Chip'
+import { useEffect } from 'react'
 
 export default function Hero() {
+  // Preload hero image
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = '/hero-bg.jpg'
+    document.head.appendChild(link)
+  }, [])
+
   return (
-    <section className="relative isolate w-full h-screen min-h-[600px] flex flex-col items-start justify-center overflow-hidden">
+    <section className="relative isolate w-full h-screen min-h-[900px] flex flex-col items-start justify-center overflow-hidden">
 
       {/* Motion Wrapper */}
       <motion.div
@@ -21,18 +29,27 @@ export default function Hero() {
         }}
       >
 
-        {/* Background Image */}
-        <motion.img
-          src="/hero-bg.jpg"
-          alt="Sulmi Performance Electric Bikes"
-          className="absolute inset-0 w-full h-full object-cover z-10"
+        {/* Background Image - Optimized with loading="eager" for above-fold */}
+        <motion.picture
+          className="absolute inset-0 w-full h-full z-10"
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
             duration: 1.2,
             ease: [0.25, 0.1, 0.25, 1]
           }}
-        />
+        >
+          <source srcSet="/hero-bg.jpg" type="image/jpeg" />
+          <motion.img
+            src="/hero-bg.jpg"
+            alt="Sulmi EB-ONE Electric Motorbike UAE - Premium Performance Electric Bike"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            width={1920}
+            height={1080}
+          />
+        </motion.picture>
 
         {/* Chip */}
         {/* <motion.div

@@ -1,11 +1,12 @@
 import { Effects } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { motion } from 'framer-motion'
 import { Particles } from './gl/particles'
 import { VignetteShader } from './gl/shaders/vignetteShader'
 
 // GL Background Component (without leva controls)
-const GLBackground = ({ hovering }: { hovering: boolean }) => {
+// Note: This component is currently unused but kept for potential future use
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const GLBackground = ({ hovering }: { hovering: boolean }) => {
     // Default values from the original leva controls
     const speed = 1.0
     const focus = 3.8

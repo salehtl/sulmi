@@ -22,4 +22,29 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    // Optimize chunk splitting
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router-vendor': ['@tanstack/react-router'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          'animation-vendor': ['framer-motion', 'lenis'],
+        },
+      },
+    },
+    // Enable minification with esbuild (faster, no extra dependency)
+    minify: 'esbuild',
+    // Optimize asset handling
+    assetsInlineLimit: 4096, // Inline assets smaller than 4kb
+    // Enable source maps for production debugging (optional)
+    sourcemap: false,
+    // Chunk size warnings
+    chunkSizeWarningLimit: 1000,
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', '@tanstack/react-router'],
+  },
 })

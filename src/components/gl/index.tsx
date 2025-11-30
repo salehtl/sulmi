@@ -1,5 +1,6 @@
 import { Effects } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+// @ts-ignore - leva is not installed, this file is unused
 import { useControls } from "leva";
 import { Particles } from "./particles";
 import { VignetteShader } from "./shaders/vignetteShader";

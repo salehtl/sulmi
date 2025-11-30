@@ -10,7 +10,6 @@ export default function SmoothScroll() {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
     })
@@ -24,12 +23,12 @@ export default function SmoothScroll() {
 
     // Handle anchor links for smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href')
+      anchor.addEventListener('click', (e: Event) => {
+        const href = (anchor as HTMLAnchorElement).getAttribute('href')
         if (href && href !== '#') {
           e.preventDefault()
           const target = document.querySelector(href)
-          if (target) {
+          if (target && target instanceof HTMLElement) {
             lenis.scrollTo(target, {
               offset: 0,
               duration: 1.5,

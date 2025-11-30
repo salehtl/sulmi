@@ -251,7 +251,7 @@ export default function Specifications() {
                 {/* Desktop: Tab-style Selector */}
                 {!compareMode && (
                     <div
-                        className="hidden md:flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start border-b border-white/15 pb-1"
+                        className="hidden md:flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start pb-1"
                         role="tablist"
                         aria-label="Model selection"
                     >
