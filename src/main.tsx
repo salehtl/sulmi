@@ -13,7 +13,7 @@ const router = createRouter({
   routeTree,
   context: {},
   defaultPreload: 'intent',
-  scrollRestoration: true,
+  scrollRestoration: false, // Disabled because Lenis handles smooth scrolling
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
 })

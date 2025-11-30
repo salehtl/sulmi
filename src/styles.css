@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #000;
 }
 
 body {
@@ -32,4 +33,96 @@ body {
 code {
   font-family: 'GeistMono', source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.06em;
+  height: 0.8em;
+  background: #D63C3A;
+  margin-left: 0.05em;
+  animation: blink 1.8s step-end infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Standardized Button Styles */
+@layer components {
+  .btn {
+    @apply rounded-none text-white text-center tracking-wider font-mono px-8 py-3 transition-colors duration-150 cursor-pointer inline-block;
+  }
+
+  .btn:focus {
+    @apply outline-none ring-2 ring-[#6765f4];
+  }
+
+  .btn-primary {
+    @apply rounded-none text-white text-center tracking-wider font-mono px-8 py-3 transition-colors duration-150 cursor-pointer inline-block bg-[#D63C3A];
+  }
+
+  .btn-primary:hover {
+    @apply bg-[#b8322e];
+  }
+
+  .btn-primary:focus {
+    @apply outline-none ring-2 ring-[#6765f4];
+  }
+
+  .btn-secondary {
+    @apply rounded-none text-white text-center tracking-wider font-mono px-8 py-3 transition-colors duration-150 cursor-pointer inline-block bg-[#131313] border border-[#3B3B3B];
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    @apply bg-zinc-900 border-[#5C5C5C];
+  }
+
+  .btn-secondary:focus {
+    @apply outline-none ring-2 ring-[#6765f4];
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-full {
+    @apply w-full;
+  }
+
+  /* Standardized Input Styles */
+  .input {
+    @apply w-full px-4 py-3 bg-black/50 border border-white/20 text-white placeholder:text-white/40 focus:outline-none transition-colors;
+  }
+
+  .input:focus {
+    @apply border-[#5C5C5C] ring-1 ring-[#5C5C5C];
+  }
+
+  .input-error {
+    @apply border-[#D63C3A];
+  }
+
+  .input-error:focus {
+    @apply border-[#D63C3A] ring-1 ring-[#D63C3A];
+  }
+
+  /* Hide scrollbar utility */
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }

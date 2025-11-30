@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sulmi EB-One: Premium electric motorbike designed and engineered in the UAE. 300km range, 70 hp, 155 km/h. Sustainable performance built for the world.">
+    <meta name="keywords" content="electric motorbike, Sulmi, EB-One, UAE electric vehicle, sustainable transportation, premium e-bike">
+    <meta property="og:title" content="Sulmi EB-One | Premium Electric Motorbike from UAE">
+    <meta property="og:description" content="Revolutionary electric motorbike designed in Dubai. Experience instant torque, 300km range, and sustainable performance.">
+    <title>Sulmi EB-One | Premium Electric Motorbike | Designed in UAE</title>
+    <style>
+        :root {
+            --color-primary: #00d4aa;
+            --color-dark: #0a0e27;
+            --color-darker: #05070f;
+            --color-text: #e0e0e0;
+            --color-text-light: #a0a0a0;
+            --color-accent-1: #ff6b6b;
+            --color-accent-2: #ffd700;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --radius-base: 8px;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-20);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 170, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-16) var(--space-20);
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: var(--space-24);
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s var(--ease-standard);
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .cta-btn {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 10px 24px;
+            border-radius: var(--radius-base);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-standard);
+            font-size: 14px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 212, 170, 0.3);
+        }
+
+        .hero {
+            margin-top: 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f42 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-48);
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: var(--space-24);
+            background: linear-gradient(135deg, #00d4aa 0%, #00f0d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-24);
+            line-height: 1.8;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: var(--space-16);
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            padding: 14px 36px;
+            border-radius: var(--radius-base);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s var(--ease-standard);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            padding: 14px 36px;
+            border-radius: var(--radius-base);
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s var(--ease-standard);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-dark);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 212, 170, 0.05) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .section {
+            padding: var(--space-48) 0;
+            border-bottom: 1px solid rgba(0, 212, 170, 0.1);
+        }
+
+        .section-title {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: var(--space-32);
+            text-align: center;
+            background: linear-gradient(135deg, #00d4aa 0%, #00f0d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .perf-card {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 212, 170, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 12px;
+            padding: var(--space-32);
+            text-align: center;
+            transition: all 0.3s var(--ease-standard);
+        }
+
+        .perf-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        }
+
+        .perf-value {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .perf-label {
+            font-size: 16px;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .specs-comparison {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.05) 0%, rgba(0, 212, 170, 0.02) 100%);
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: var(--space-32);
+        }
+
+        .spec-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr 1fr;
+            gap: var(--space-20);
+            padding: var(--space-20);
+            border-bottom: 1px solid rgba(0, 212, 170, 0.1);
+            align-items: center;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--color-text-light);
+        }
+
+        .spec-value {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.08) 0%, rgba(0, 212, 170, 0.02) 100%);
+            border: 1px solid rgba(0, 212, 170, 0.15);
+            border-radius: 12px;
+            padding: var(--space-24);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: var(--space-16);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: var(--space-16);
+            color: var(--color-primary);
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-20);
+            margin-bottom: var(--space-32);
+        }
+
+        .color-option {
+            border-radius: 12px;
+            height: 160px;
+            border: 2px solid rgba(0, 212, 170, 0.2);
+            cursor: pointer;
+            transition: all 0.3s var(--ease-standard);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-16);
+        }
+
+        .color-option:hover {
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+        }
+
+        .color-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-light);
+        }
+
+        .tech-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 212, 170, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 12px;
+            padding: var(--space-24);
+        }
+
+        .tech-item h3 {
+            font-size: 18px;
+            color: var(--color-primary);
+            margin-bottom: var(--space-12);
+        }
+
+        .tech-item p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            border-radius: 16px;
+            padding: var(--space-48);
+            text-align: center;
+            margin: var(--space-48) 0;
+        }
+
+        .cta-section h2 {
+            font-size: 38px;
+            margin-bottom: var(--space-24);
+            background: linear-gradient(135deg, #00d4aa 0%, #00f0d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-32);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background: #000;
+            border-top: 1px solid rgba(0, 212, 170, 0.1);
+            padding: var(--space-48) var(--space-20);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-32);
+            margin-bottom: var(--space-32);
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-12);
+            text-decoration: none;
+            transition: color 0.3s var(--ease-standard);
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 212, 170, 0.1);
+            padding-top: var(--space-24);
+            text-align: center;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .spec-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+<script type="text/javascript" nonce="b8ad830c81ed4b4c8dbc412d6b0" src="//local.adguard.org?ts=1764500762726&amp;type=content-script&amp;dmn=ppl-ai-code-interpreter-files.s3.amazonaws.com&amp;url=https%3A%2F%2Fppl-ai-code-interpreter-files.s3.amazonaws.com%2Fweb%2Fdirect-files%2F2f4eba62a9b95c428b3889e3f37a67c1%2F133b424e-2114-4b97-b433-0d82271dd5ac%2Fcanvas-app%2Findex.html%3Fresponse-content-disposition%3Dattachment%253B%2520filename%253Dindex.html%253B%2520filename%252A%253DUTF-8%2527%2527index.html%26AWSAccessKeyId%3DASIA2F3EMEYE2THBWKLS%26Signature%3DsCi1qClTZtM3mCERtkTqAfwBa8c%253D%26x-amz-security-token%3DIQoJb3JpZ2luX2VjEBwaCXVzLWVhc3QtMSJIMEYCIQDBpVk%252FLLAgA82CFpF70Kw941HhGmLVuzn2zg2JEAVMfgIhANR9Bq8H%252Ft4SGfo8J6xH21XnX3q9x8L1gBWq85%252B%252Fum2jKvwECOT%252F%252F%252F%252F%252F%252F%252F%252F%252F%252FwEQARoMNjk5NzUzMzA5NzA1IgyvKLbSTsfIQ%252BXaSgYq0ATr1ipyGK35a19S9S%252F8N365wTDJBXkIxIwYNjoWxWb3uxt%252FvjQDPgks6H7RRqtDOnidtYlhdn5lBueFq6pPfHwl6mWHyRwv%252Fax%252FmoTjKEcTIIoaNQTntLVFhOmeqCaoJR1jhiUzPCiDh8gcWwUmqmGreXbj38gKUUynGE0Vb2DrZ8ZvDH57rXMZGF9f9rEvsV9CbFK1L%252BKakmxdysn%252BsvO12uhFk58zLwxBf6zg3LrOst9BBzEviBTJV1%252BrtTqEaxLw65ofl8qZQlgKwlMyPAb5u9ZSUaC2cMdLm8qc89rYXdtUcoyVoeiMTnktZ%252F9A9tikbrv0jTJXAM0hlTcllsivcJoFiVgLhhrarAEnaIK6T849DyF1V07%252BjlvpHvdsngLdTKzhNMuv7Q9O9v9w4s2F6QQvPYqRR4AY1jI2puewSUGGNExhMWHfCGi3Mpcp9D4snvzErKA7KuRpascAyO6%252BC3rAcReWCnenOm4PUErWVGx8d9TBAJZXhVldOee5B6Zn2TG1Txi7%252B%252BVkN51iA%252BYfH%252F8qLvHX6hedqznpQUvCGczxnt6Oroe1dCBIEb1lqLzaBJpf%252BHNCb5LRD%252FPjOveJw5sfrbK%252FFxMwYY%252BgGsSoszkoPfXr109BuqKS5k01d%252BRfgzirHqXSoxmq3NnvLTyHI%252FYRjqU3xonHVnD5R%252BTzY4uBqJsxogZWe4EipYasf9m0ZU4DPKk%252BHk%252FzJx8PBTmmT2AMz%252BzQEBCFFKwefaTQmRIzYenLgq%252FrLkAVjc5JyW3sD5OBZh1yafafc23jBnZ3MNvLsMkGOpcBmRnNOKmuXZBRkJx65VthkzFBZzrha8s6Z%252FeT1QQfCts8rz1rTqydMhraNU24nOdO%252BldLdsgW3S0IsAF34d73rB1CQAUleiqOYPKYHWJTK5N%252Fo7X7rviB%252BqRPWD28AlT2ZDRZf%252FpZC2DcyibTA73P%252BlLFb%252FcelKAY58u%252F5l7yuo9cUuiC1RSehCR7XTgIOM0bfdzs1DW0GA%253D%253D%26Expires%3D1764504211&amp;app=com.apple.Safari&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="b8ad830c81ed4b4c8dbc412d6b0" src="//local.adguard.org?ts=1764500762726&amp;name=AdGuard%20Extra&amp;type=user-script"></script></head>
+<body>
+    <!-- HEADER/NAVIGATION -->
+    <header>
+        <div class="header-content">
+            <div class="logo">SULMI</div>
+            <nav>
+                <a href="#performance">Performance</a>
+                <a href="#specs">Specs</a>
+                <a href="#features">Features</a>
+                <a href="#technology">Technology</a>
+            </nav>
+            <button class="cta-btn" onclick="document.getElementById('contact-form').scrollIntoView()">Contact Us</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>The Future of Electric Mobility</h1>
+                    <p>Sulmi EB-One: Premium electric motorbike designed and engineered in the UAE. Experience instant torque, sustainable performance, and revolutionary technology built for the world.</p>
+                    <div class="hero-ctas">
+                        <button class="btn-primary" onclick="document.getElementById('specs').scrollIntoView()">Explore Now</button>
+                        <button class="btn-secondary" onclick="alert('Contact our team for a demo: demo@sulmi.ai')">Book Demo</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    [EB-One Motorbike Hero Image]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE HIGHLIGHTS -->
+    <section class="section" id="performance">
+        <div class="container">
+            <h2 class="section-title">Unmatched Performance</h2>
+            <div class="performance-grid">
+                <div class="perf-card">
+                    <div class="perf-value">300 km</div>
+                    <div class="perf-label">Range</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-value">70 hp</div>
+                    <div class="perf-label">Horse Power</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-value">155 km/h</div>
+                    <div class="perf-label">Top Speed</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-value">&lt;30 min</div>
+                    <div class="perf-label">Fast Charging</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-value">45°</div>
+                    <div class="perf-label">Lean Angle</div>
+                </div>
+                <div class="perf-card">
+                    <div class="perf-value">&lt;4.0s</div>
+                    <div class="perf-label">0-100 km/h</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIFICATIONS -->
+    <section class="section" id="specs">
+        <div class="container">
+            <h2 class="section-title">Model Specifications</h2>
+            <div class="specs-comparison">
+                <div class="spec-row" style="background: rgba(0, 212, 170, 0.1); font-weight: 600;">
+                    <div class="spec-label">Specification</div>
+                    <div class="spec-value">Base Model</div>
+                    <div class="spec-value">Long Range</div>
+                    <div class="spec-value">Premium</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">Battery Capacity</div>
+                    <div class="spec-value">11 kWh</div>
+                    <div class="spec-value">15.5 kWh</div>
+                    <div class="spec-value">11 kWh HD</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">Urban Range</div>
+                    <div class="spec-value">300+ km</div>
+                    <div class="spec-value">320+ km</div>
+                    <div class="spec-value">260+ km</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">0-100 km/h</div>
+                    <div class="spec-value">&lt;5.0s</div>
+                    <div class="spec-value">&lt;4.8s</div>
+                    <div class="spec-value">&lt;4.0s</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">Top Speed</div>
+                    <div class="spec-value">155 km/h</div>
+                    <div class="spec-value">155 km/h</div>
+                    <div class="spec-value">160+ km/h</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">Motor Power</div>
+                    <div class="spec-value">35 kW</div>
+                    <div class="spec-value">35 kW</div>
+                    <div class="spec-value">52-70 kW</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">Fast Charging</div>
+                    <div class="spec-value">AC 6-8 hrs</div>
+                    <div class="spec-value">DC &lt;35 min</div>
+                    <div class="spec-value">AC Optimized</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title">Built for the Modern Rider</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Torque</h3>
+                    <p>Experience the thrill of instant electric acceleration with zero emissions. The EB-One delivers responsive, smooth power delivery in every scenario.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>SIRA Safety System</h3>
+                    <p>Advanced blind-spot detection, collision alerts, and real-time navigation empower riders with unmatched safety and confidence on every ride.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Premium Design</h3>
+                    <p>Contemporary UAE architecture meets futuristic sci-fi aesthetics. Every curve and line is designed for comfort, control, and visual dominance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔋</div>
+                    <h3>SEUT™ Battery System</h3>
+                    <p>Intelligent predictive thermal control and adaptive BMS ensure repeatable range, rapid charging, and exceptional long-term battery health.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Smart Connectivity</h3>
+                    <p>Intuitive mobile app controls for climate, location tracking, charging status, and real-time ride analytics. Charge anywhere, fast.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏁</div>
+                    <h3>Performance Tuning</h3>
+                    <p>From city-focused efficiency to track-ready performance. Premium suspension, Brembo-grade braking, and fully adjustable ride setup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="section" id="technology">
+        <div class="container">
+            <h2 class="section-title">In-House Innovation</h2>
+            <p style="text-align: center; font-size: 18px; color: var(--color-text-light); margin-bottom: var(--space-32); max-width: 700px; margin-left: auto; margin-right: auto;">We're Sulmi, a tech company based in the UAE, specializing in designing, engineering, and developing cutting-edge technology integrated seamlessly into revolutionary mobility products.</p>
+            <div class="tech-highlights">
+                <div class="tech-item">
+                    <h3>⚙️ Proprietary Motor</h3>
+                    <p>Custom-engineered electric motor with optimized power-to-weight ratio for thrilling acceleration and exceptional efficiency across all riding conditions.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>🧠 Intelligent BMS</h3>
+                    <p>Adaptive battery management system with predictive thermal control ensures maximum range repeatability, faster charging, and extended battery lifespan.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>🎯 SIRA Safety Suite</h3>
+                    <p>Advanced sensor fusion providing blind-spot detection, real-time collision alerts, and integrated navigation for confident, secure riding.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>📱 Mobile Integration</h3>
+                    <p>Seamless app connectivity for vehicle control, charging management, ride analytics, climate settings, and real-time location tracking.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>🌡️ Thermal Management</h3>
+                    <p>Advanced cooling systems maintain optimal motor and battery temperatures, ensuring consistent performance and longevity in demanding conditions.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>♻️ Sustainable Design</h3>
+                    <p>Zero-emission electric powertrain paves the way to eco-friendly roads while maintaining premium performance and thrilling riding experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLORS -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Expression</h2>
+            <p style="text-align: center; font-size: 16px; color: var(--color-text-light); margin-bottom: var(--space-32);">From timeless classics to bold statements. Every satin finish tells a story of elegance and performance.</p>
+            <div class="colors-grid">
+                <div class="color-option" style="background: linear-gradient(135deg, #2d5a3d 0%, #1a3d2a 100%);">
+                    <span class="color-label">Pitch Green</span>
+                </div>
+                <div class="color-option" style="background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);">
+                    <span class="color-label" style="color: var(--color-dark);">Satin White</span>
+                </div>
+                <div class="color-option" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+                    <span class="color-label">Satin Black</span>
+                </div>
+                <div class="color-option" style="background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);">
+                    <span class="color-label" style="color: var(--color-dark);">Stunning Yellow</span>
+                </div>
+                <div class="color-option" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);">
+                    <span class="color-label">Fast Red</span>
+                </div>
+                <div class="color-option" style="background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);">
+                    <span class="color-label">Electric Blue</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL-TO-ACTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Experience the Future?</h2>
+            <p>Book your exclusive EB-One demo or get in touch with our team to learn more about customization options and availability.</p>
+            <div style="display: flex; gap: var(--space-16); justify-content: center; flex-wrap: wrap;">
+                <button class="btn-primary" onclick="alert('Email: demo@sulmi.ai\nPhone: +971 58 5334117\nLocation: Dubai, UAE')">Get in Touch</button>
+                <button class="btn-secondary" onclick="alert('Demo booking coming soon!')">Request Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About SULMI</h3>
+                <p>We're a UAE-based technology company specializing in designing and engineering cutting-edge electric mobility solutions for the modern world.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#performance">Performance</a>
+                <a href="#specs">Specifications</a>
+                <a href="#features">Features</a>
+                <a href="#technology">Technology</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:demo@sulmi.ai">demo@sulmi.ai</a></p>
+                <p>Phone: <a href="tel:+97158533417">+971 58 5334117</a></p>
+                <p>Location: Dubai, UAE</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sulmi Technology. Designed & Engineered in the UAE. Built for the World.</p>
+        </div>
+    </footer>
+</body>
+</html>

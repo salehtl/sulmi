@@ -4,6 +4,7 @@ interface ChipProps {
   children: ReactNode
   roundness?: string
   showDot?: boolean
+  showBrandmark?: boolean
   dotColor?: string
   className?: string
 }
@@ -12,6 +13,7 @@ export default function Chip({
   children,
   roundness = '6px',
   showDot = true,
+  showBrandmark = false,
   dotColor = '#A1CBFF',
   className = '',
 }: ChipProps) {
@@ -65,8 +67,17 @@ export default function Chip({
         className="absolute w-[var(--h)] bottom-[var(--hh)] right-[var(--hh)] h-[2px] bg-white/40 -rotate-45 translate-x-1/2"
       />
 
+      {/* Brandmark SVG */}
+      {showBrandmark && (
+        <img
+          src="/brandmark.svg"
+          alt="Brandmark"
+          className="inline-block mr-2 aspect-square h-6 object-contain"
+        />
+      )}
+
       {/* Dot indicator with glow */}
-      {showDot && (
+      {!showBrandmark && showDot && (
         <span
           className="inline-block size-2.5 rounded-full mr-2"
           style={{

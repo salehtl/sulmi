@@ -2,6 +2,70 @@ import { z } from 'zod'
 import { useAppForm } from '@/hooks/demo.form'
 import { useStore } from '@tanstack/react-form'
 import { fieldContext, useFieldContext } from '@/hooks/demo.form-context'
+import { Effects } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { Particles } from './gl/particles'
+import { VignetteShader } from './gl/shaders/vignetteShader'
+
+// GL Background Component (without leva controls)
+const GLBackground = ({ hovering }: { hovering: boolean }) => {
+  // Default values from the original leva controls
+  const speed = 1.0
+  const focus = 3.8
+  const aperture = 1.79
+  const size = 512
+  const noiseScale = 0.6
+  const noiseIntensity = 0.52
+  const timeScale = 1
+  const pointSize = 10.0
+  const opacity = 0.4
+  const planeScale = 10.0
+  const useManualTime = false
+  const manualTime = 0
+  const vignetteDarkness = 1.5
+  const vignetteOffset = 0.4
+
+  return (
+    <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      <Canvas
+        camera={{
+          position: [
+            1.2629783123314589, 2.664606471394044, -1.8178993743288914,
+          ],
+          fov: 50,
+          near: 0.01,
+          far: 100,
+        }}
+        className="w-full h-full"
+      >
+        <color attach="background" args={['#000']} />
+        <Particles
+          speed={speed}
+          aperture={aperture}
+          focus={focus}
+          size={size}
+          noiseScale={noiseScale}
+          noiseIntensity={noiseIntensity}
+          timeScale={timeScale}
+          pointSize={pointSize}
+          opacity={opacity}
+          planeScale={planeScale}
+          useManualTime={useManualTime}
+          manualTime={manualTime}
+          introspect={hovering}
+        />
+        <Effects multisamping={0} disableGamma>
+          {/* @ts-ignore */}
+          <shaderPass
+            args={[VignetteShader]}
+            uniforms-darkness-value={vignetteDarkness}
+            uniforms-offset-value={vignetteOffset}
+          />
+        </Effects>
+      </Canvas>
+    </div>
+  )
+}
 
 const waitlistSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -30,7 +94,7 @@ function WaitlistTextField({
         placeholder={placeholder}
         onBlur={field.handleBlur}
         onChange={(e) => field.handleChange(e.target.value)}
-        className="w-full px-4 py-3 bg-black/50 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#A1CBFF] focus:ring-1 focus:ring-[#A1CBFF] transition-colors"
+        className={`input ${field.state.meta.isTouched && errors.length > 0 ? 'input-error' : ''}`}
       />
       {field.state.meta.isTouched && errors.length > 0 && (
         <div className="mt-2">
@@ -65,9 +129,18 @@ export default function WaitlistForm() {
     },
   })
 
+  // For "hovering" effect, you can improve this with section focus/hover logic if needed
+  const hovering = false
+
+  // New: track if form is pristine (untouched and unchanged from defaults)
+  // (isPristine is no longer needed since we are removing disabled logic)
+
   return (
-    <section id="waitlist" className="relative w-full min-h-screen flex items-center justify-center py-24 px-6 sm:px-8 lg:px-12 bg-black text-white">
-      <div className="max-w-2xl mx-auto w-full">
+    <section id="waitlist" className="relative w-full min-h-screen flex items-center justify-center py-24 px-6 sm:px-8 lg:px-12 bg-black text-white overflow-hidden">
+      {/* GL background shader behind content */}
+      <GLBackground hovering={hovering} />
+      {/* Waitlist form content overlays the GLBackground */}
+      <div className="max-w-2xl mx-auto w-full relative z-20">
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
             Join the Waitlist
@@ -124,14 +197,16 @@ export default function WaitlistForm() {
 
             <div className="pt-4">
               <form.AppForm>
-                <form.Subscribe selector={(state) => state.isSubmitting}>
-                  {(isSubmitting) => (
+                <form.Subscribe selector={state => ({
+                  isSubmitting: state.isSubmitting,
+                  isValid: state.isValid,
+                })}>
+                  {({ isSubmitting }) => (
                     <button
                       type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-zinc-100 border-0 border-t-2 border-t-[#D63C3A] rounded-none text-black px-8 py-3 font-semibold shadow hover:bg-zinc-300 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="btn-secondary btn-full"
                     >
-                      {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+                      {isSubmitting ? 'JOINING...' : 'JOIN NOW'}
                     </button>
                   )}
                 </form.Subscribe>
