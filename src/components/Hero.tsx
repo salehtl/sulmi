@@ -12,7 +12,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative isolate w-full h-screen min-h-[900px] flex flex-col items-start justify-center overflow-hidden">
+    <section className="relative isolate w-full h-svh md:min-h-[900px] flex flex-col items-start justify-center overflow-hidden">
 
       {/* Motion Wrapper */}
       <motion.div
