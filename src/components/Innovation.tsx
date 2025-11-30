@@ -5,32 +5,32 @@ const INNOVATIONS = [
     {
         title: "Proprietary Motor",
         description: "Custom-engineered electric motor with optimized power-to-weight ratio for thrilling acceleration and exceptional efficiency across all riding conditions.",
-        bgImage: "/dynamic-shot.png"
+        bgImage: "/dynamic-shot.webp"
     },
     {
         title: "Intelligent BMS",
         description: "Adaptive battery management system with predictive thermal control ensures maximum range repeatability, faster charging, and extended battery lifespan.",
-        bgImage: "/battery.png"
+        bgImage: "/battery.webp"
     },
     {
         title: "SIRA Safety Suite",
         description: "Advanced sensor fusion providing blind-spot detection, real-time collision alerts, and integrated navigation for confident, secure riding.",
-        bgImage: "/sira.png"
+        bgImage: "/sira.webp"
     },
     {
         title: "Mobile Integration",
         description: "Seamless app connectivity for vehicle control, charging management, ride analytics, climate settings, and real-time location tracking.",
-        bgImage: "/mobile-integration.png"
+        bgImage: "/mobile-integration.webp"
     },
     {
         title: "Thermal Management",
         description: "Advanced cooling systems maintain optimal motor and battery temperatures, ensuring consistent performance and longevity in demanding conditions.",
-        bgImage: "/thermal.png"
+        bgImage: "/thermal.webp"
     },
     {
         title: "Sustainable Design",
         description: "Zero-emission electric powertrain paves the way to eco-friendly roads while maintaining premium performance and thrilling riding experience.",
-        bgImage: "/sustainable.png"
+        bgImage: "/sustainable.webp"
     }
 ];
 
