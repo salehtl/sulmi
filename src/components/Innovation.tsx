@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const INNOVATIONS = [
     {
@@ -34,6 +34,61 @@ const INNOVATIONS = [
     }
 ];
 
+// Blur-in image component
+function BlurInImage({ src, alt, className, isFirstImage = false }: { src: string; alt: string; className?: string; isFirstImage?: boolean }) {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [imageKey, setImageKey] = useState(0);
+
+    useEffect(() => {
+        // Reset loaded state when src changes
+        setIsLoaded(false);
+        setImageKey(prev => prev + 1);
+
+        // Check if image is already loaded (from cache)
+        const img = new Image();
+        img.src = src;
+        if (img.complete) {
+            // Image is already loaded, but add a small delay to ensure blur is visible
+            const timer = setTimeout(() => setIsLoaded(true), 50);
+            return () => clearTimeout(timer);
+        }
+    }, [src]);
+
+    const handleLoad = () => {
+        // Small delay to ensure blur animation is visible
+        requestAnimationFrame(() => {
+            setIsLoaded(true);
+        });
+    };
+
+    return (
+        <div className="relative w-full h-full overflow-hidden">
+            <motion.img
+                key={imageKey}
+                src={src}
+                alt={alt}
+                className={className}
+                loading={isFirstImage ? "eager" : "lazy"}
+                decoding="async"
+                onLoad={handleLoad}
+                onError={() => setIsLoaded(true)} // Remove blur on error
+                initial={{ filter: 'blur(20px)', scale: 1.05 }}
+                animate={{
+                    filter: isLoaded ? 'blur(0px)' : 'blur(20px)',
+                    scale: isLoaded ? 1 : 1.05,
+                }}
+                transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.1, 0.25, 1],
+                }}
+            />
+            {!isLoaded && (
+                <div className="absolute inset-0 bg-black/20 animate-pulse" />
+            )}
+        </div>
+    );
+}
+
 export default function Innovation() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const currentInnovation = INNOVATIONS[currentIndex];
@@ -62,12 +117,11 @@ export default function Innovation() {
                             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                             className="absolute inset-0 z-0"
                         >
-                            <img
+                            <BlurInImage
                                 src={currentInnovation.bgImage}
                                 alt={`${currentInnovation.title} - Sulmi Electric Motorbike Innovation UAE`}
                                 className="w-full h-full object-cover"
-                                loading="lazy"
-                                decoding="async"
+                                isFirstImage={currentIndex === 0}
                             />
                         </motion.div>
                     </AnimatePresence>
