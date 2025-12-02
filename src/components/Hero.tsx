@@ -12,7 +12,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative isolate w-full h-svh md:min-h-[800px] flex flex-col items-start justify-center overflow-hidden">
+    <section className="relative isolate w-full flex flex-col items-start justify-center overflow-hidden">
 
       {/* Motion Wrapper */}
       <motion.div
@@ -51,26 +51,6 @@ export default function Hero() {
           />
         </motion.picture>
 
-        {/* Chip */}
-        {/* <motion.div
-          className="z-30 relative mb-8"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.6,
-                ease: [0.25, 0.1, 0.25, 1],
-              },
-            },
-          }}
-        >
-          <Chip dotColor="#D63C3A">
-            SULMI PERFORMANCE ELECTRIC BIKES
-          </Chip>
-        </motion.div> */}
-
         {/* EB One Heading */}
         <motion.div
           className="relative z-20 text-white mix-blend-difference mb-6"
@@ -86,7 +66,7 @@ export default function Hero() {
             },
           }}
         >
-          <h1 className="2xl:text-[500px] xl:text-[420px] lg:text-[380px] md:text-[300px] text-[160px] leading-[0.9] font-extrabold caret">
+          <h1 className="2xl:text-[500px] xl:text-[400px] lg:text-[380px] md:text-[300px] text-[160px] leading-[0.9] font-extrabold caret">
             EB-ONE
           </h1>
         </motion.div>
@@ -110,7 +90,7 @@ export default function Hero() {
         {/* CTA Button */}
         <motion.a
           href="#waitlist"
-          className="relative z-30 btn-primary btn-full"
+          className="relative z-30 btn-primary btn-full mb-6"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: {
