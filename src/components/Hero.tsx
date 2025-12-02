@@ -12,7 +12,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative isolate w-full flex flex-col items-start justify-center overflow-hidden">
+    <section className="relative isolate h-svh md:min-h-[800px] w-full flex flex-col items-start justify-center overflow-hidden">
 
       {/* Motion Wrapper */}
       <motion.div
@@ -66,7 +66,7 @@ export default function Hero() {
             },
           }}
         >
-          <h1 className="2xl:text-[500px] xl:text-[400px] lg:text-[380px] md:text-[300px] text-[160px] leading-[0.9] font-extrabold caret">
+          <h1 className="2xl:text-[500px] xl:text-[380px] lg:text-[320px] md:text-[280px] sm:text-[240px] text-[160px] leading-[0.9] font-extrabold caret">
             EB-ONE
           </h1>
         </motion.div>
